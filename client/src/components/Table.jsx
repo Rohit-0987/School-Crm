@@ -39,7 +39,7 @@ function Table({ modelName }) {
   const fetchData = async () => {
     try {
       const lowerCaseModelName = modelName.toLowerCase();
-      const response = await fetch(BASE_URL+`/api/${lowerCaseModelName}/get`); 
+      const response = await fetch(`https://school-crm-4j11.onrender.com/api/${lowerCaseModelName}/get`); 
       const data = await response.json();
       
       const rowsWithSelectedFields = data.map((row, index) => {

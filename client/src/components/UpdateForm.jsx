@@ -44,7 +44,7 @@ function UpdateForm({ modelName, id }) {
 
   const fetchExistingData = async () => {
     try {
-      const response = await fetch(BASE_URL+`/api/${modelName.toLowerCase()}/get/${id}`);
+      const response = await fetch(`https://school-crm-4j11.onrender.com/api/${modelName.toLowerCase()}/get/${id}`);
       const data = await response.json();
       setFormData(data);
     } catch (error) {
