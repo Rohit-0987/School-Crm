@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link ,useNavigate} from 'react-router-dom'
 import OAuth from '../components/OAuth';
+import { BASE_URL } from '../assets/baseUrl';
 
 export default function SignUp() {
   const [formData,setFormData]=useState({});
@@ -17,11 +18,11 @@ export default function SignUp() {
       );
   };
   const handleSubmit =async(e)=>{
-    
+
     e.preventDefault();
     try {
           setLoading(true);
-        const res=await fetch(BASE_URL +  '/api/auth/signup',
+        const res=await fetch('https://school-crm-4j11.onrender.com/api/auth/signup',
         {
           method:'POST',
           headers:{

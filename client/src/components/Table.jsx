@@ -24,7 +24,7 @@ function Table({ modelName }) {
   };
   const handleDelete =async(lowerCaseModelName,id)=>{
     try {
-      const response = await fetch(BASE_URL+`/api/${lowerCaseModelName}/delete/${id}`,{
+      const response = await fetch(`https://school-crm-4j11.onrender.com/api/${lowerCaseModelName}/delete/${id}`,{
         method:'DELETE',
       });
       const data = await response.json();

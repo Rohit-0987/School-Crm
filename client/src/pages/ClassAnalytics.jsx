@@ -13,7 +13,7 @@ function ClassAnalytics() {
 
     const fetchData = async () => {
         try {
-            const response = await fetch(BASE_URL+`/api/class/getByName/${name}`);
+            const response = await fetch(`https://school-crm-4j11.onrender.com/api/class/getByName/${name}`);
             const data = await response.json();
             setClassData(data);
         } catch (error) {

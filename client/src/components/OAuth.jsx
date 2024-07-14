@@ -14,7 +14,7 @@ export default function OAuth() {
       const auth = getAuth(app);
 
       const result = await signInWithPopup(auth, provider);
-      const res = await fetch(BASE_URL+'/api/auth/google', {
+      const res = await fetch('https://school-crm-4j11.onrender.com/api/auth/google', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -17,8 +17,8 @@ function ProfitAnalysis() {
 
     const fetchData = async () => {
         try {
-            const response = await fetch(BASE_URL+`/api/teacher/getTeacherSalariesSum`);
-            const response2 = await fetch(BASE_URL+`/api/student/getStudentFeesSum`);
+            const response = await fetch(`https://school-crm-4j11.onrender.com/api/teacher/getTeacherSalariesSum`);
+            const response2 = await fetch(`https://school-crm-4j11.onrender.com/api/student/getStudentFeesSum`);
             const data = await response.json();
             const data2 = await response2.json();
             setData(data.sum);

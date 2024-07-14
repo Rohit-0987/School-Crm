@@ -24,7 +24,7 @@ function UpdateForm({ modelName, id }) {
 
   const fetchModelSchema = async () => {
     try {
-      const response = await fetch(BASE_URL+`/api/${modelName.toLowerCase()}/getForm`);
+      const response = await fetch(`https://school-crm-4j11.onrender.com/api/${modelName.toLowerCase()}/getForm`);
       const data = await response.json();
 
       const regularFields = [];
@@ -55,7 +55,7 @@ function UpdateForm({ modelName, id }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(BASE_URL+`/api/${modelName.toLowerCase()}/update/${id}`, {
+      const response = await fetch(`https://school-crm-4j11.onrender.com/api/${modelName.toLowerCase()}/update/${id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
