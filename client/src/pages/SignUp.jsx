@@ -17,7 +17,7 @@ export default function SignUp() {
       );
   };
   const handleSubmit =async(e)=>{
-    const BASE_URL = process.env.REACT_APP_BASE_URL;
+    const BASE_URL = "https://school-crm-4j11.onrender.com";
     console.log(BASE_URL);
     e.preventDefault();
     try {
