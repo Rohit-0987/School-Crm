@@ -17,10 +17,12 @@ export default function SignUp() {
       );
   };
   const handleSubmit =async(e)=>{
+    const BASE_URL = process.env.REACT_APP_BASE_URL;
+    console.log(BASE_URL);
     e.preventDefault();
     try {
           setLoading(true);
-        const res=await fetch('/api/auth/signup',
+        const res=await fetch(BASE_URL +  '/api/auth/signup',
         {
           method:'POST',
           headers:{
