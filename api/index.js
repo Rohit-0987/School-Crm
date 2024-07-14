@@ -10,6 +10,7 @@ import cookieParser from "cookie-parser";
 import cors from 'cors';
 import path from 'path';
 dotenv.config()
+const PORT = process.env.PORT || 3000;
 mongoose
     .connect(process.env.MONGO)
     .then(()=>{
@@ -24,16 +25,24 @@ const app=express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
-app.listen(3000,()=>{
-        console.log('Server is running on port 3000!')
+app.listen(PORT,()=>{
+        console.log(`Server is running on port ${PORT}!`)
     }
 );
+
+app.get("/api/demo",(req,res)=>{
+    return res.json({
+        success:true
+    });
+});
 
 app.use("/api/user",userRouter);
 app.use("/api/auth",authRouter);
 app.use("/api/student",studentRouter);
 app.use("/api/teacher",teacherRouter);
 app.use("/api/class",classRouter);
+
+
 
 app.use(express.static(path.join(__dirname, '/client/dist')));
 
@@ -49,7 +58,4 @@ app.use((err,req,res,next)=>{
         statusCode,
         message,
     })
-})
-app.get("/",(req,res)=>{
-    res.json("Hello");
 })
