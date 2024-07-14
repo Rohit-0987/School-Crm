@@ -21,11 +21,6 @@ mongoose
 const __dirname = path.resolve();
 
 const app=express();
-app.use(cors({
-    origin: ["school-crm-frontend.vercel.app/"],
-    methods:["POST","GET"],
-    credentials: true
-}))
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
