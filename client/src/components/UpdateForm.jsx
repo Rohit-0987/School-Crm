@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Loading from "./Loading";
+import { BASE_URL } from "../assets/baseUrl";
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -23,7 +24,7 @@ function UpdateForm({ modelName, id }) {
 
   const fetchModelSchema = async () => {
     try {
-      const response = await fetch(`/api/${modelName.toLowerCase()}/getForm`);
+      const response = await fetch(BASE_URL+`/api/${modelName.toLowerCase()}/getForm`);
       const data = await response.json();
 
       const regularFields = [];
@@ -43,7 +44,7 @@ function UpdateForm({ modelName, id }) {
 
   const fetchExistingData = async () => {
     try {
-      const response = await fetch(`/api/${modelName.toLowerCase()}/get/${id}`);
+      const response = await fetch(BASE_URL+`/api/${modelName.toLowerCase()}/get/${id}`);
       const data = await response.json();
       setFormData(data);
     } catch (error) {
@@ -54,7 +55,7 @@ function UpdateForm({ modelName, id }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`/api/${modelName.toLowerCase()}/update/${id}`, {
+      const response = await fetch(BASE_URL+`/api/${modelName.toLowerCase()}/update/${id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

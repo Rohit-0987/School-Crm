@@ -6,6 +6,7 @@ import UpdateButton from "./UpdateButton";
 import { useNavigate } from 'react-router-dom';
 import Loading from "./Loading";
 import { Button } from "@mui/material";
+import { BASE_URL } from "../assets/baseUrl";
 function Table({ modelName }) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
@@ -23,7 +24,7 @@ function Table({ modelName }) {
   };
   const handleDelete =async(lowerCaseModelName,id)=>{
     try {
-      const response = await fetch(`/api/${lowerCaseModelName}/delete/${id}`,{
+      const response = await fetch(BASE_URL+`/api/${lowerCaseModelName}/delete/${id}`,{
         method:'DELETE',
       });
       const data = await response.json();
@@ -38,7 +39,7 @@ function Table({ modelName }) {
   const fetchData = async () => {
     try {
       const lowerCaseModelName = modelName.toLowerCase();
-      const response = await fetch(`/api/${lowerCaseModelName}/get`); 
+      const response = await fetch(BASE_URL+`/api/${lowerCaseModelName}/get`); 
       const data = await response.json();
       
       const rowsWithSelectedFields = data.map((row, index) => {

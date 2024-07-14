@@ -3,6 +3,7 @@ import { app } from '../firebase';
 import { useDispatch } from 'react-redux';
 import { signInSuccess } from '../redux/user/userSlice';
 import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../assets/baseUrl';
 
 export default function OAuth() {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ export default function OAuth() {
       const auth = getAuth(app);
 
       const result = await signInWithPopup(auth, provider);
-      const res = await fetch('https://school-crm-4j11.onrender.com/api/auth/google', {
+      const res = await fetch(BASE_URL+'/api/auth/google', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

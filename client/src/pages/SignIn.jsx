@@ -3,6 +3,7 @@ import { Link ,useNavigate} from 'react-router-dom'
 import {  useDispatch, useSelector } from 'react-redux';
 import { signInStart,signInSuccess,signInFailure } from '../redux/user/userSlice';
 import OAuth from '../components/OAuth';
+import { BASE_URL } from '../assets/baseUrl';
 
 export default function SignIn() {
   const [formData,setFormData]=useState({});
@@ -23,7 +24,7 @@ export default function SignIn() {
     e.preventDefault();
     try {
           dispatch(signInStart());
-        const res=await fetch('https://school-crm-4j11.onrender.com/api/auth/signin',
+        const res=await fetch(BASE_URL+'/api/auth/signin',
         {
           method:'POST',
           headers:{

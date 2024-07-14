@@ -3,6 +3,7 @@ import ToggleGroup from '../components/ToggleGroup';
 import MonthlyBarChart from '../components/MonthlyBarChart';
 import YearlyBarChart from '../components/YearlyBarChart';
 import Loading from '../components/Loading'; 
+import { BASE_URL } from '../assets/baseUrl';
 
 function ProfitAnalysis() {
     const [loading, setLoading] = useState(true); 
@@ -16,8 +17,8 @@ function ProfitAnalysis() {
 
     const fetchData = async () => {
         try {
-            const response = await fetch(`/api/teacher/getTeacherSalariesSum`);
-            const response2 = await fetch(`/api/student/getStudentFeesSum`);
+            const response = await fetch(BASE_URL+`/api/teacher/getTeacherSalariesSum`);
+            const response2 = await fetch(BASE_URL+`/api/student/getStudentFeesSum`);
             const data = await response.json();
             const data2 = await response2.json();
             setData(data.sum);

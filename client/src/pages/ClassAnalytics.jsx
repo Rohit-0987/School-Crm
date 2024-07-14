@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ChartExample } from "../components/Chart";
 import Loading from "../components/Loading";
+import { BASE_URL } from "../assets/baseUrl";
 function ClassAnalytics() {
     const { name } = useParams();
     const [classData, setClassData] = useState(null);
@@ -12,7 +13,7 @@ function ClassAnalytics() {
 
     const fetchData = async () => {
         try {
-            const response = await fetch(`/api/class/getByName/${name}`);
+            const response = await fetch(BASE_URL+`/api/class/getByName/${name}`);
             const data = await response.json();
             setClassData(data);
         } catch (error) {
